@@ -1,0 +1,32 @@
+header{
+    width:100%;
+}
+
+nav.navbar{
+    margin-left:auto;
+    padding:1rem .5rem;
+}
+
+.navbar-sign-in{
+    display:inline-block
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+    right:12px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }

@@ -1,5 +1,5 @@
 import { initializeApp } from '@firebase/app'
-import { getAuth, GoogleAuthProvider, signInWithPopup } from '@firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from '@firebase/auth'
 import { process } from '../../env';
 
 const firebaseConfig = {
@@ -19,11 +19,20 @@ const googleProvider = new GoogleAuthProvider()
 const handleGoogleLogin = ()=>{
     signInWithPopup(auth, googleProvider)
     .then((results)=>{
-        console.log(results)
+        localStorage.setItem('currentAuth', JSON.stringify(results))
     })
     .catch(error => {
         throw new Error(error)
     })
 }
 
-export { app, auth, handleGoogleLogin}
+const handleSignOut = ()=>{
+    signOut(auth).then(()=>{
+        localStorage.removeItem('currentAuth')
+    })
+    .catch((error)=>{
+        throw new Error(error)
+    })
+}
+
+export { app, auth, handleGoogleLogin, handleSignOut}

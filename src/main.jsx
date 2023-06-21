@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
 import { Layout } from './components/Layout/Layout'
 import { Home } from './pages/Home/Home.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
 const routes = createRoutesFromElements(

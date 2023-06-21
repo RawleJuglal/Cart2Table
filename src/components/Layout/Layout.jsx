@@ -5,16 +5,18 @@ import { Outlet } from 'react-router-dom'
 import { C2TNavbar } from '../Navbar/C2TNavbar'
 
 const Layout = ()=>{
+    const [user, setUser] = useState(null)
 
     useEffect(()=>{
         onAuthStateChanged(auth, (data)=>{
             console.log(data)
+            setUser(data)
         })
     }, [])
 
     return(
         <>
-            <C2TNavbar />
+            <C2TNavbar user={user} />
             <Outlet />
         </>
     )

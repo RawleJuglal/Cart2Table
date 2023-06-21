@@ -69,4 +69,6 @@ table {
 #root{
     max-width: 23.4375rem;
     margin:auto;
+	border:3px solid black;
 }
+
