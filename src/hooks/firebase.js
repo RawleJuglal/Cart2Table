@@ -1,5 +1,5 @@
 import { initializeApp } from '@firebase/app'
-import { getAuth, GoogleAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from '@firebase/auth'
+import { getAuth, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider, signInWithPopup, signOut } from '@firebase/auth'
 import {  getFirestore, addDoc, } from '@firebase/firestore'
 // import { process } from '../../env';
 
@@ -17,6 +17,7 @@ const database = getFirestore(app)
 const auth = getAuth()
 const googleProvider = new GoogleAuthProvider()
 const twitterProvider = new TwitterAuthProvider()
+const githubProvider = new GithubAuthProvider()
 
 
 const handleGoogleLogin = ()=>{
@@ -31,6 +32,16 @@ const handleGoogleLogin = ()=>{
 
 const handleTwitterLogin = ()=>{
     signInWithPopup(auth, twitterProvider)
+    .then((results)=>{
+        localStorage.setItem('currentAuth', JSON.stringify(results))
+    })
+    .catch(error => {
+        throw new Error(error)
+    })
+}
+
+const handleGithubLogin = ()=>{
+    signInWithPopup(auth, githubProvider)
     .then((results)=>{
         localStorage.setItem('currentAuth', JSON.stringify(results))
     })
@@ -58,4 +69,4 @@ const addData = (ref, dataObj)=>{
     })
 }
 
-export { app, database, auth, handleGoogleLogin, handleTwitterLogin, handleSignOut, addData}
+export { app, database, auth, handleGoogleLogin, handleTwitterLogin, handleGithubLogin, handleSignOut, addData}
