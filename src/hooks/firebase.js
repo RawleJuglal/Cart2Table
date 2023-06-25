@@ -4,7 +4,7 @@ import { collection, getFirestore, getDocs, addDoc, doc, updateDoc, deleteDoc } 
 import { process } from '../../env';
 
 const firebaseConfig = {
-  apiKey: process.env.C2T_API_KEY,
+  apiKey: 'AIzaSyBqdW_Jd3BZseIsE2vz5VnRuW-ajaaAPSE',
   authDomain: "cart2table-1dd25.firebaseapp.com",
   projectId: "cart2table-1dd25",
   storageBucket: "cart2table-1dd25.appspot.com",
