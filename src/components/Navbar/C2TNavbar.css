@@ -12,6 +12,7 @@ header.--header{
 .--c2tnavbar-auth-button{
   color:white;
   font-weight:700;
+  text-shadow:0 0 2px #161616;
 }
 
 nav.navbar{

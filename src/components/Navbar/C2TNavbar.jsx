@@ -1,5 +1,5 @@
 import React from 'react'
-import { handleGoogleLogin, handleSignOut } from '../../hooks/firebase';
+import { handleGoogleLogin, handleTwitterLogin, handleSignOut } from '../../hooks/firebase';
 import { Google, Twitter, Github, Facebook, CaretDownFill } from 'react-bootstrap-icons';
 import './C2TNavbar.css'
 
@@ -18,7 +18,7 @@ const C2TNavbar = (props)=>{
                             <div>
                                 <ul>
                                     <li onClick={handleGoogleLogin}><Google /> Google</li>
-                                    <li><Twitter /> Twitter</li>
+                                    <li onClick={handleTwitterLogin}><Twitter /> Twitter</li>
                                     <li><Github /> Github</li>
                                     <li><Facebook /> Facebook</li>
                                 </ul>

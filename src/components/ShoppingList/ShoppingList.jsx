@@ -47,9 +47,9 @@ const ShoppingList = (props)=>{
 
     return(
         <>
-            {!isLoading ? (<section id='shoppingList-div' className='--shoppingList-container flex flex-wrap'>
-                {data?.length > 0 && ShoppingListEL ? (ShoppingListEL): (<h1>Data not available</h1>)}
-            </section>) : (<h1>Shopping List is loading...</h1>)}
+            {!isLoading ? (<section id='shoppingList-div' className='--shoppingList-container flex flex-wrap flex-center'>
+                {data?.length > 0 && ShoppingListEL ? (ShoppingListEL): (<h1 className='--shoppingList-h1'>Data not available</h1>)}
+            </section>) : (<h1 className='--shoppingList-h1'>Shopping List is loading...</h1>)}
             
             
         </>

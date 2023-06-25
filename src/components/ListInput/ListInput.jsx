@@ -40,7 +40,13 @@ const ListInput = ()=>{
                     placeholder="Bread" 
                     required
                 />
-                <button type="submit" onClick={event=>handleClick(event)}>Add</button>
+                <button 
+                    type="submit"
+                    className='--list-input-submit' 
+                    onClick={event=>handleClick(event)}
+                >
+                    Add
+                </button>
             </Form>
         </>
     )

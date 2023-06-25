@@ -12,7 +12,7 @@ const Home = ()=>{
         <>
             <main className='--main flex flex-column flex-align-center'>
                 <ListInput />
-                {user ? (<ShoppingList user={user} />): (<h1>Please login for your list</h1>) }
+                {user ? (<ShoppingList user={user} />): (<h1 className='--home-h1'>Please login for your list</h1>) }
             </main>
             
         </>
