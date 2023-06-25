@@ -9,7 +9,9 @@ async function action({request}){
     const item = formData.get('item')
     try{
        const collectionRef = collection(database, `${auth.currentUser.displayName}`)
-       addData(collectionRef, {groceryItem: item})
+       if(item){
+        addData(collectionRef, {groceryItem: item})
+       } 
        formData.delete('item')
        return null 
     } catch(err){
