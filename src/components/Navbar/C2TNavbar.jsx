@@ -1,5 +1,5 @@
 import React from 'react'
-import { handleGoogleLogin, handleTwitterLogin, handleGithubLogin, handleSignOut, handleGithubLogin } from '../../hooks/firebase';
+import { handleGoogleLogin, handleTwitterLogin, handleGithubLogin, handleSignOut} from '../../hooks/firebase';
 import { Google, Twitter, Github, Facebook, CaretDownFill } from 'react-bootstrap-icons';
 import './C2TNavbar.css'
 
