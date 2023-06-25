@@ -30,7 +30,7 @@ const handleGoogleLogin = ()=>{
 }
 
 const handleTwitterLogin = ()=>{
-    signInWithPopup(auth, twitterProviderProvider)
+    signInWithPopup(auth, twitterProvider)
     .then((results)=>{
         localStorage.setItem('currentAuth', JSON.stringify(results))
     })
