@@ -1,0 +1,26 @@
+form.--list-input-form{
+    gap:1rem;
+}
+
+input.--list-input-item:focus-visible{
+    all:unset;
+    border:2px solid rgba(131,58,180,1)
+}
+
+input.--list-input-item,
+input.--list-input-item:focus-visible
+{
+    padding:1rem .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color:lightskyblue;
+    color:white;
+    font-family: var(--primary-font);
+    border-image-source: linear-gradient(to right, rgba(252,176,69,1)0%, rgba(131,58,180,1)50%,rgba(253,29,29,1));
+    border-image-slice: 1;
+}
+
+input.--list-input-item::placeholder{
+    color:white;
+    opacity: 1;
+}

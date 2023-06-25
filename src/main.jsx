@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
 import { Layout } from './components/Layout/Layout'
 import { Home } from './pages/Home/Home.jsx'
+import { action as listInputAction} from './components/ListInput/ListInput'
 import './index.css'
 
 const routes = createRoutesFromElements(
@@ -13,7 +14,8 @@ const routes = createRoutesFromElements(
   >
     <Route 
       index 
-      element={<Home />} 
+      element={<Home />}
+      action={listInputAction} 
     />
   </Route>
 );

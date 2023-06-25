@@ -9,7 +9,6 @@ const Layout = ()=>{
 
     useEffect(()=>{
         onAuthStateChanged(auth, (data)=>{
-            console.log(data)
             setUser(data)
         })
     }, [])
@@ -17,7 +16,7 @@ const Layout = ()=>{
     return(
         <>
             <C2TNavbar user={user} />
-            <Outlet />
+            <Outlet context={user}/>
         </>
     )
 }

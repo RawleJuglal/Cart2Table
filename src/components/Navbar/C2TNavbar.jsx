@@ -7,13 +7,13 @@ const C2TNavbar = (props)=>{
     const user = props.user
     return(
         <>
-            <header className='flex'>
+            <header className='--header flex'>
                 {user ? (<nav className='navbar'>
-                    <button onClick={handleSignOut}>Sign Out</button>
+                    <button className='--c2tnavbar-auth-button --c2tnavbar-sign-out' onClick={handleSignOut}>Sign Out</button>
                 </nav>) :
                 (<nav className='navbar'>
                     <div className="dropdown">
-                        <span className='flex'>Sign In <CaretDownFill className='navbar-caret-down' /></span>
+                        <span className='flex --c2tnavbar-auth-button'>Sign In <CaretDownFill className='navbar-caret-down' /></span>
                         <div className="dropdown-content">
                             <div>
                                 <ul>

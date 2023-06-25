@@ -1,5 +1,6 @@
 import { initializeApp } from '@firebase/app'
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from '@firebase/auth'
+import { collection, getFirestore, getDocs, addDoc, doc, updateDoc, deleteDoc } from '@firebase/firestore'
 import { process } from '../../env';
 
 const firebaseConfig = {
@@ -12,6 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const database = getFirestore(app)
 const auth = getAuth()
 const googleProvider = new GoogleAuthProvider()
 
@@ -35,4 +37,14 @@ const handleSignOut = ()=>{
     })
 }
 
-export { app, auth, handleGoogleLogin, handleSignOut}
+const addData = (ref, dataObj)=>{
+    addDoc(ref, dataObj)
+    .then(()=>{
+        return `data added`
+    })
+    .catch((error)=>{
+        throw new Error(error)
+    })
+}
+
+export { app, database, auth, handleGoogleLogin, handleSignOut, addData}
