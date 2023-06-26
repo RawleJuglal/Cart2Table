@@ -5,25 +5,23 @@ import {  getFirestore, addDoc, } from '@firebase/firestore'
 
 
 
-function fetchKey(){
+async function fetchKey(){
     const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
-    let key = ''
-    fetch(url, {
+    const response = fetch(url, {
         method:'POST',
         headers:{
             'content-type':'text/plain'
         },
         body:{}
-    }).then(res =>(res.json()))
-    .then(data => {
-        key = data.reply;
     })
-    console.log(key)
-    return key; 
+    const data = await response.json()
+    console.log(data.reply)
+    return data.reply
 }
 
+const myKey = fetchKey()
 const firebaseConfig = {
-  apiKey: fetchKey(),
+  apiKey: myKey,
   authDomain: "cart2table-1dd25.firebaseapp.com",
   projectId: "cart2table-1dd25",
   storageBucket: "cart2table-1dd25.appspot.com",
