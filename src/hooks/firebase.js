@@ -16,6 +16,7 @@ async function fetchKey(){
     })
 
     const data = await response.json()
+    console.log(data.reply)
     return data.reply
 }
 
