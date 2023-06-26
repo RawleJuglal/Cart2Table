@@ -18,6 +18,7 @@ function fetchKey(){
     .then(data => {
         key = data.reply;
     })
+    console.log(key)
     return key; 
 }
 
