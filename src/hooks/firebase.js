@@ -3,6 +3,15 @@ import { getAuth, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider, F
 import {  getFirestore, addDoc, } from '@firebase/firestore'
 // import { process } from '../../env';
 
+const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
+const response = fetch(url, {
+    method:'POST',
+    headers:{
+        'content-type':'text/plain'
+    },
+    body:''
+})
+
 const firebaseConfig = {
   apiKey: 'AIzaSyBqdW_Jd3BZseIsE2vz5VnRuW-ajaaAPSE',
   authDomain: "cart2table-1dd25.firebaseapp.com",
