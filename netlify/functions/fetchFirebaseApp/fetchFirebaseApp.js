@@ -1,13 +1,20 @@
-// Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
+import { initializeApp } from '@firebase/app'
+
 const handler = async (event) => {
   try {
-    const subject = event.queryStringParameters.name || 'World'
+    const firebaseConfig = {
+      apiKey: process.env.C2T__API_KEY,
+      authDomain: "cart2table-1dd25.firebaseapp.com",
+      projectId: "cart2table-1dd25",
+      storageBucket: "cart2table-1dd25.appspot.com",
+      messagingSenderId: "257185387712",
+      appId: "1:257185387712:web:1fae6a58c6caf3d5a74925"
+    };
+    
+    const app = initializeApp(firebaseConfig);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` }),
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
+      body: JSON.stringify({reply:app}),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
