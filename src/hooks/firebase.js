@@ -20,6 +20,10 @@ async function fetchKey(){
 }
 
 const myKey = fetchKey()
+.then(()=>{
+    const app = initializeApp(firebaseConfig);
+    const database = getFirestore(app)
+})
 const firebaseConfig = {
   apiKey: myKey,
   authDomain: "cart2table-1dd25.firebaseapp.com",
@@ -30,8 +34,7 @@ const firebaseConfig = {
 };
 console.log(firebaseConfig)
 
-const app = initializeApp(firebaseConfig);
-const database = getFirestore(app)
+
 const auth = getAuth()
 const googleProvider = new GoogleAuthProvider()
 const twitterProvider = new TwitterAuthProvider()
