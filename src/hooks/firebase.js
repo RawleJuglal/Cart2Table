@@ -7,7 +7,7 @@ import {  getFirestore, addDoc, } from '@firebase/firestore'
 
 async function fetchKey(){
     const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
-    const response = fetch(url, {
+    const response = await fetch(url, {
         method:'POST',
         headers:{
             'content-type':'text/plain'
