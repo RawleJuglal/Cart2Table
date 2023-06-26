@@ -2,38 +2,20 @@ import { initializeApp } from '@firebase/app'
 import { getAuth, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider, FacebookAuthProvider, signInWithPopup, signOut } from '@firebase/auth'
 import {  getFirestore, addDoc, } from '@firebase/firestore'
 // import { process } from '../../env';
-let app = {}
-let database = {}
 
 
-async function fetchKey(){
-    const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
-    const response = await fetch(url, {
-        method:'POST',
-        headers:{
-            'content-type':'text/plain'
-        },
-        body:{}
-    })
-    const data = await response.json()
-    console.log(data.reply)
-    return data.reply
-}
 
-const myKey = fetchKey()
-.then(()=>{
-    const firebaseConfig = {
-        apiKey: myKey,
-        authDomain: "cart2table-1dd25.firebaseapp.com",
-        projectId: "cart2table-1dd25",
-        storageBucket: "cart2table-1dd25.appspot.com",
-        messagingSenderId: "257185387712",
-        appId: "1:257185387712:web:1fae6a58c6caf3d5a74925"
-    };
-    app = initializeApp(firebaseConfig);
-    database = getFirestore(app)
-})
+const firebaseConfig = {
+    apiKey: `AIzaSyBqdW_Jd3BZseIsE2vz5VnRuW-ajaaAPSE`,
+    authDomain: "cart2table-1dd25.firebaseapp.com",
+    projectId: "cart2table-1dd25",
+    storageBucket: "cart2table-1dd25.appspot.com",
+    messagingSenderId: "257185387712",
+    appId: "1:257185387712:web:1fae6a58c6caf3d5a74925"
+};
 
+const app = initializeApp(firebaseConfig);
+const database = getFirestore(app)
 const auth = getAuth()
 const googleProvider = new GoogleAuthProvider()
 const twitterProvider = new TwitterAuthProvider()
