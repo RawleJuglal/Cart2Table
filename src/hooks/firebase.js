@@ -3,14 +3,21 @@ import { getAuth, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider, F
 import {  getFirestore, addDoc, } from '@firebase/firestore'
 // import { process } from '../../env';
 
-const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
-const response = fetch(url, {
-    method:'POST',
-    headers:{
-        'content-type':'text/plain'
-    },
-    body:''
-})
+
+
+async function fetchKey(){
+    const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
+    const response = await fetch(url, {
+        method:'POST',
+        headers:{
+            'content-type':'text/plain'
+        },
+        body:{}
+    })
+
+    const data = await response.json()
+    console.log(data)
+}
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBqdW_Jd3BZseIsE2vz5VnRuW-ajaaAPSE',
@@ -29,6 +36,7 @@ const twitterProvider = new TwitterAuthProvider()
 const githubProvider = new GithubAuthProvider()
 const facebookProvider = new FacebookAuthProvider()
 
+fetchKey()
 
 const handleGoogleLogin = ()=>{
     signInWithPopup(auth, googleProvider)
