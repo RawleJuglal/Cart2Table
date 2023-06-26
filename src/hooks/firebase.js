@@ -2,7 +2,8 @@ import { initializeApp } from '@firebase/app'
 import { getAuth, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider, FacebookAuthProvider, signInWithPopup, signOut } from '@firebase/auth'
 import {  getFirestore, addDoc, } from '@firebase/firestore'
 // import { process } from '../../env';
-
+let app = {}
+let database = {}
 
 
 async function fetchKey(){
@@ -21,8 +22,8 @@ async function fetchKey(){
 
 const myKey = fetchKey()
 .then(()=>{
-    const app = initializeApp(firebaseConfig);
-    const database = getFirestore(app)
+    app = initializeApp(firebaseConfig);
+    database = getFirestore(app)
 })
 const firebaseConfig = {
   apiKey: myKey,
