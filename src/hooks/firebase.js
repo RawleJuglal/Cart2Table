@@ -5,19 +5,20 @@ import {  getFirestore, addDoc, } from '@firebase/firestore'
 
 
 
-async function fetchKey(){
+function fetchKey(){
     const url = `https://eloquent-profiterole-92be35.netlify.app/.netlify/functions/fetchFirebaseApp`
-    const response = await fetch(url, {
+    let key = ''
+    fetch(url, {
         method:'POST',
         headers:{
             'content-type':'text/plain'
         },
         body:{}
+    }).then(res =>(res.json()))
+    .then(data => {
+        key = data.reply;
     })
-
-    const data = await response.json()
-    console.log(data.reply)
-    return data.reply
+    return key; 
 }
 
 const firebaseConfig = {
