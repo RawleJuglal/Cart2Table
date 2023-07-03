@@ -7,6 +7,7 @@ import { collection } from '@firebase/firestore'
 async function action({request}){
     const formData = await request.formData()
     const item = formData.get('item')
+    
     try{
        const collectionRef = collection(database, `${auth.currentUser.displayName}`)
        if(item){
@@ -21,11 +22,13 @@ async function action({request}){
 
 const ListInput = ()=>{
     const submit = useSubmit()
+    const inputRef = React.useRef(null)
 
     function handleClick(e){
         e.preventDefault()
         submit(e.currentTarget.form)
         e.currentTarget.form.reset()
+        inputRef.current.focus()
     }
     
     return(
@@ -39,7 +42,8 @@ const ListInput = ()=>{
                     type="text"
                     className='--list-input-item' 
                     name="item" 
-                    placeholder="Bread" 
+                    placeholder="Bread"
+                    ref={inputRef} 
                     required
                 />
                 <button 
