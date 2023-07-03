@@ -1,4 +1,4 @@
-# Home Ready Renovations
+# Cart 2 Table
 Welcome to Cart2Table! This is an app to add/remove grocery items quickly from firebase database.
 
 ## Installation
